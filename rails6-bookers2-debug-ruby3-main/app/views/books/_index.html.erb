@@ -16,10 +16,12 @@
         </td>
         <td><%= link_to book.title,book %></td>
         <td><%= book.body %></td>
+        
+        <p><%= link_to "#{book.book_comments.count} コメント", book_path(book.id) %></p>
       </tr>
     <% end %>
     
     
-    
+   
   </tbody>
 </table>
