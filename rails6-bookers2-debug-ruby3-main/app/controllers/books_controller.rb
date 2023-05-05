@@ -9,6 +9,7 @@ before_action :correct_user, only: [:update, :edit, :destroy]
 
   def index
     @book = Book.new
+    #@book = Book.find(params[:id])
     @books = Book.all
   end
 
