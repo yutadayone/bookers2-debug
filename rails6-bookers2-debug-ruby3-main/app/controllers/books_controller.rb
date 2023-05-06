@@ -10,7 +10,7 @@ before_action :correct_user, only: [:update, :edit, :destroy]
 
   def index
     @book = Book.new
-    
+    #@bookparams = Book.find(params[:id])
     @books = Book.all
   end
 
@@ -20,7 +20,7 @@ before_action :correct_user, only: [:update, :edit, :destroy]
     if @book.save
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
-      
+
       @books = Book.all
       render 'index'
     end
@@ -35,7 +35,7 @@ before_action :correct_user, only: [:update, :edit, :destroy]
     if @book.update(book_params)
       redirect_to book_path(@book), notice: "You have updated book successfully."
     else
-      
+
       render "edit"
     end
   end
@@ -51,7 +51,7 @@ before_action :correct_user, only: [:update, :edit, :destroy]
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
    def correct_user
     @book = Book.find(params[:id])
     unless @book.user == current_user
