@@ -25,7 +25,7 @@
             <% end %>
 
 
-            <td><%= render 'favorites/favo', book: @book %></td>
+            <td id="favo-<%= @book.id %>"><%= render 'favorites/favo', book: @book %></td>
 
 
   <td>
@@ -43,13 +43,12 @@
 
 <table>
       <tbody>
-<%= render 'book_comments/index', book: @book %>
+<div id="comments-index"><%= render 'book_comments/index', book: @book %></div>
       </tbody>
 </table>
 
 
-
-  <%= render 'book_comments/form', book: @book, book_comment: @book_comment %>
+<div id="comments-area"><%= render "book_comments/form",book: @book,book_comment: @book_comment %></div>
 
 
 
